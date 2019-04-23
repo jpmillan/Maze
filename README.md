@@ -2,17 +2,7 @@
 maze code challenge
 --------------------------------
 Given a maze with the following structure
-###########
-S # # #
-# # # # # #
-# # # #
-######### #
-# # #
-# # #######
-# # # #
-# # # ### #
-# # F
-###########
+
 Please write a program that can solve the maze. The blank characters
 represent empty space and the hash character (#) represents a wall.
 The cursor is unable to travel through a wall, but is able to travel
