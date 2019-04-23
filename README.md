@@ -24,4 +24,12 @@ Deliverables:
 
 Instructions:
 
-- 
+- $ git clone https://github.com/jpmillan/Maze.git
+
+$ cd Maze
+
+$ mvn clean install site
+
+to access account list enquiry
+
+$ 
