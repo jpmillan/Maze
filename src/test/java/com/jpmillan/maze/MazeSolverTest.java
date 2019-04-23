@@ -50,8 +50,11 @@ class MazeSolverTest {
         sb2.append("###########\n");
 
         String expectedSolution = sb2.toString();
-
         assertEquals(expectedSolution, mazeSolver.solveMaze(maze));
 
+
+
     }
+
+
 }
