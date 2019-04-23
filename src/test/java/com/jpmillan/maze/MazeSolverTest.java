@@ -1,9 +1,18 @@
 package com.jpmillan.maze;
 
-public class Main {
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
-    public static void main(String[] args) {
-        StringBuffer sb = new StringBuffer();
+import static org.junit.jupiter.api.Assertions.*;
+
+class MazeSolverTest {
+
+    Maze maze;
+
+    @BeforeEach
+    public void init(){
+        StringBuilder sb = new StringBuilder();
         sb.append("###########\n");
         sb.append("S #   #   #\n");
         sb.append("# # # # # #\n");
@@ -16,9 +25,18 @@ public class Main {
         sb.append("#   #     F\n");
         sb.append("###########\n");
 
-        //System.out.println(sb.toString());
+        String standardMazeStr = sb.toString();
 
-        StringBuffer sb2 = new StringBuffer();
+        maze = new Maze(standardMazeStr);
+    }
+
+    @Test
+    @DisplayName("Test sample maze solution")
+    public void solveMaze() {
+
+        MazeSolver mazeSolver = new MazeSolver();
+
+        StringBuilder sb2 = new StringBuilder();
         sb2.append("###########\n");
         sb2.append("S.#...#...#\n");
         sb2.append("#.#.#.#.#.#\n");
@@ -31,6 +49,9 @@ public class Main {
         sb2.append("#   #.....F\n");
         sb2.append("###########\n");
 
-        //System.out.println(sb2.toString());
+        String expectedSolution = sb2.toString();
+
+        assertEquals(expectedSolution, mazeSolver.solveMaze(maze));
+
     }
 }
