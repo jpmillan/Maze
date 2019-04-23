@@ -9,7 +9,7 @@ import java.util.List;
 public class MazeSolver {
 
     private String solution;
-    public final String UNSOLVABLE = "unsolvable maze";
+    private static final String UNSOLVABLE = "unsolvable maze";
     public String getSolution() {
         return solution;
     }
