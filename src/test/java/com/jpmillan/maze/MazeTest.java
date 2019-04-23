@@ -1,5 +1,6 @@
 package com.jpmillan.maze;
 
+import com.jpmillan.maze.error.MazeException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -32,15 +33,14 @@ class MazeTest {
     }
 
     @Test
-    @DisplayName("Test invalid maze")
+    @DisplayName("Test blank maze")
     public void invalidConstructorTest(){
         StringBuilder sb = new StringBuilder();
-        sb.append("");
 
         String standardMazeStr = sb.toString();
 
-        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> new Maze(standardMazeStr));
-        assertEquals("Invalid Maze String", thrown.getMessage());
+        MazeException thrown = assertThrows(MazeException.class, () -> new Maze(standardMazeStr));
+        assertEquals("Invalid maze:Input String is empty", thrown.getMessage());
 
     }
 
@@ -48,8 +48,8 @@ class MazeTest {
     @DisplayName("Test null maze")
     public void nullConstructorTest(){
 
-        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> new Maze(null));
-        assertEquals("Invalid Maze String", thrown.getMessage());
+        MazeException thrown = assertThrows(MazeException.class, () -> new Maze(null));
+        assertEquals("Invalid maze:Input String is empty", thrown.getMessage());
 
     }
 

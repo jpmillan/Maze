@@ -12,6 +12,13 @@ class MazeSolverTest {
 
     @BeforeEach
     public void init(){
+
+    }
+
+    @Test
+    @DisplayName("Test sample maze solution")
+    public void solveMaze() {
+
         StringBuilder sb = new StringBuilder();
         sb.append("###########\n");
         sb.append("S #   #   #\n");
@@ -26,13 +33,8 @@ class MazeSolverTest {
         sb.append("###########\n");
 
         String standardMazeStr = sb.toString();
-
         maze = new Maze(standardMazeStr);
-    }
 
-    @Test
-    @DisplayName("Test sample maze solution")
-    public void solveMaze() {
 
         MazeSolver mazeSolver = new MazeSolver();
 
@@ -50,7 +52,54 @@ class MazeSolverTest {
         sb2.append("###########\n");
 
         String expectedSolution = sb2.toString();
-        assertEquals(expectedSolution, mazeSolver.solveMaze(maze));
+        mazeSolver.solveMaze(maze);
+        assertEquals(expectedSolution, mazeSolver.getSolution());
+
+    }
+
+    @Test
+    @DisplayName("Test simple maze")
+    public void solveSimpleMaze() {
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("###########\n");
+        sb.append("S         F\n");
+        sb.append("###########\n");
+
+        maze = new Maze(sb.toString());
+        MazeSolver mazeSolver = new MazeSolver();
+        mazeSolver.solveMaze(maze);
+
+        StringBuilder sb2 = new StringBuilder();
+        sb2.append("###########\n");
+        sb2.append("S.........F\n");
+        sb2.append("###########\n");
+
+
+        assertEquals(sb2.toString(), mazeSolver.getSolution());
+        //MazeException thrown = assertThrows(MazeException.class, () -> );
+
+
+
+    }
+
+    @Test
+    @DisplayName("Test unsolveable maze")
+    public void solveInvalidMaze() {
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("###########\n");
+        sb.append("S #   #   #\n");
+        sb.append("# # # # # #\n");
+        sb.append("#   #   ###\n");
+        sb.append("#########F#\n");
+
+        maze = new Maze(sb.toString());
+
+        MazeSolver mazeSolver = new MazeSolver();
+        mazeSolver.solveMaze(maze);
+        assertEquals("unsolvable maze", mazeSolver.getSolution());
+        //MazeException thrown = assertThrows(MazeException.class, () -> );
 
 
 

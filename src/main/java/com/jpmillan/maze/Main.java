@@ -3,6 +3,7 @@ package com.jpmillan.maze;
 public class Main {
 
     public static void main(String[] args) {
+
         StringBuffer sb = new StringBuffer();
         sb.append("###########\n");
         sb.append("S #   #   #\n");
@@ -16,21 +17,22 @@ public class Main {
         sb.append("#   #     F\n");
         sb.append("###########\n");
 
-        //System.out.println(sb.toString());
+        Maze maze = new Maze(sb.toString());
+        MazeSolver ms = new MazeSolver();
+        ms.solveMaze(maze);
 
-        StringBuffer sb2 = new StringBuffer();
-        sb2.append("###########\n");
-        sb2.append("S.#...#...#\n");
-        sb2.append("#.#.#.#.#.#\n");
-        sb2.append("#...#...#.#\n");
-        sb2.append("#########.#\n");
-        sb2.append("# #.......#\n");
-        sb2.append("# #.#######\n");
-        sb2.append("# #...#   #\n");
-        sb2.append("# # #.### #\n");
-        sb2.append("#   #.....F\n");
-        sb2.append("###########\n");
+        sb = new StringBuffer();
+        sb.append("###########\n");
+        sb.append("S #   #   F\n");
+        sb.append("#   #   # #\n");
+        sb.append("# # #   # #\n");
+        sb.append("###########\n");
 
-        //System.out.println(sb2.toString());
+
+        maze = new Maze(sb.toString());
+
+        ms = new MazeSolver();
+        ms.solveMaze(maze);
+
     }
 }
